@@ -20,13 +20,6 @@ k3d cluster create k3s-metalllb \
 docker network inspect k3d-k3s-metalllb | jq '.[0].IPAM.Config[0]'
 ```
 
-### Deploy apps deps
-
-```
-docker run --rm --name redis-master --network k3d-k3s-metalllb -d redis:6
-docker run -rm --name postgres -e POSTGRES_PASSWORD=postgres --network k3d-k3s-metalllb -d postgres:11
-```
-
 ### Deploy metallb
 
 ```
